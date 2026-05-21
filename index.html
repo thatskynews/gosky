@@ -1535,8 +1535,11 @@ function handleShareDownload(btn) {
             var el = document.getElementById('sharePopup');
             if (el) { el.classList.add('show'); document.body.classList.add('modal-open'); }
         }
-        if (p === 'HD') {
+        if (p === 'C265001') {
     showActivityDetail('C265001');
+        }
+        if (p === 'DJTZ') {
+    showActivityDetail('pricing');
         }
     }, 500);
 })();
