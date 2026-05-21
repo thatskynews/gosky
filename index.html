@@ -292,9 +292,9 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.3);
-            backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
+            background: rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
             display: none;
             justify-content: center;
             align-items: center;
@@ -434,7 +434,7 @@
         }
         .activity-info { flex: 1; min-width: 0; }
         .activity-title {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            font-family: 'Rubik', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
             font-size: 15px;
             font-weight: 600;
             color: #1d1d1f;
@@ -443,7 +443,7 @@
             text-overflow: ellipsis;
         }
         .activity-sub {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            font-family: 'Rubik', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
             font-size: 12px;
             color: #86868b;
             margin-top: 2px;
@@ -776,7 +776,7 @@
                 </div>
                 <div class="activity-info">
                     <div class="activity-title">C265001活动</div>
-                    <div class="activity-sub">2026-5-25</div>
+                    <div class="activity-sub">2026/5/25</div>
                 </div>
                 <div class="activity-arrow">
                     <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round" style="transform:translateX(1px);"><path d="M9 18l6-6-6-6"/></svg>
@@ -793,7 +793,7 @@
                 </div>
                 <div class="activity-info">
                     <div class="activity-title">GoSky定价调整</div>
-                    <div class="activity-sub">2026-6-1</div>
+                    <div class="activity-sub">2026/5/18</div>
                 </div>
                 <div class="activity-arrow">
                     <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round" style="transform:translateX(1px);"><path d="M9 18l6-6-6-6"/></svg>
@@ -1352,13 +1352,19 @@
             `;
             break;
         case 'pricing':
-            title.textContent = 'GoSky定价调整';
-            content.innerHTML = `
-                <div style="font-size:14px;color:#1d1d1f;line-height:1.5;">
-                    <p style="color:#000000;">无内容</p>
-                </div>
-            `;
-            break;
+    title.textContent = 'GoSky定价调整';
+    title.style.fontFamily = "'Rubik', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif";
+    content.innerHTML = `
+        <div style="font-size:14px;color:#1d1d1f;line-height:1.8;">
+            <p style="margin-bottom:12px;font-weight:500;">Hey! 我们亲爱的GoSky用户，经过我们的内部仔细评估决定，我们将对GoSky的定价以进行策略调整，定价调整如下：</p>
+            <p style="margin-bottom:6px;"><span style="background:#e8e8ed; padding:2px 6px; border-radius:6px;font-weight:500;">月度卡丨8.8 → 12.8</span></p>
+            <p style="margin-bottom:6px;"><span style="background:#e8e8ed; padding:2px 6px; border-radius:6px;font-weight:500;">季度卡丨38 → 34.8</span></p>
+            <p style="margin-bottom:6px;"><span style="background:#e8e8ed; padding:2px 6px; border-radius:6px;font-weight:500;">年度卡丨78 → 88</span></p>
+            <p style="margin-bottom:12px;"><span style="background:#e8e8ed; padding:2px 6px; border-radius:6px;font-weight:500;">永久卡丨128 → 178</span></p>
+            <p>定价调整计划实行于2026年6月1日，感谢您的理解与支持。</p>
+        </div>
+    `;
+    break;
         default:
             title.textContent = '活动详情';
             content.innerHTML = '<div style="text-align:center;font-size:14px;color:#86868b;">暂无详情</div>';
@@ -1521,13 +1527,16 @@ function handleShareDownload(btn) {
     var params = new URLSearchParams(window.location.search);
     var p = params.get('popup');
     setTimeout(function() {
-        if (p === 'HD') {
-            var el = document.getElementById('activityDetailPopup');
+        if (p === 'TZ') {
+            var el = document.getElementById('notifyPopup');
             if (el) { el.classList.add('show'); document.body.classList.add('modal-open'); }
         }
         if (p === 'YY') {
             var el = document.getElementById('sharePopup');
             if (el) { el.classList.add('show'); document.body.classList.add('modal-open'); }
+        }
+        if (p === 'HD') {
+    showActivityDetail('C265001');
         }
     }, 500);
 })();
