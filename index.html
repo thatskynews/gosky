@@ -1609,7 +1609,6 @@ function hideActivityDetail() {
     //  分享弹窗 //
     function showSharePopup() {
         // 重置下载按钮状态
-        resetDownloadBtn();
         document.getElementById('sharePopup').classList.add('show');
         document.body.classList.add('modal-open');
     }
@@ -1663,7 +1662,7 @@ function handleShareDownload(btn) {
     var count = (dlFailMap.get(btn) || 0) + 1;
     dlFailMap.set(btn, count);
 
-    if (count >= 6) {
+    if (count >= 4) {
         // 原始链接
         window.location.href = originalUrl;
     } else {
