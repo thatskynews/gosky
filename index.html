@@ -1647,11 +1647,6 @@ function setPopupUrl(param) {
     history.pushState(null, '', param ? '?popup=' + param : '/');
 }
 
-function showPopup() {
-    document.getElementById('popupOverlay').classList.add('show');
-    document.body.classList.add('modal-open');
-    setPopupUrl('GD');
-}
 function hidePopup() {
     document.getElementById('popupOverlay').classList.remove('show');
     document.body.classList.remove('modal-open');
