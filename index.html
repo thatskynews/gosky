@@ -1230,7 +1230,7 @@
         <div class="share-app-name">Alight Motion</div>
         <div class="share-app-stars">
             <span class="star">★</span>
-            <span style="font-size:11px;color:#86868b;margin-left:3px;font-family:-apple-system,sans-serif;">4.8丨79.63MB</span>
+            <span style="font-size:11px;color:#86868b;margin-left:3px;font-family:-apple-system,sans-serif;">4.8丨79.6MB</span>
         </div>
         <div class="share-app-desc">专业级视频/运动图形编辑与动画制作，APKMob高级解锁</div>
     </div>
@@ -1253,7 +1253,7 @@
         <div class="share-app-name">Outlook</div>
         <div class="share-app-stars">
             <span class="star">★</span>
-            <span style="font-size:11px;color:#86868b;margin-left:3px;font-family:-apple-system,sans-serif;">4.7丨165.89MB</span>
+            <span style="font-size:11px;color:#86868b;margin-left:3px;font-family:-apple-system,sans-serif;">4.7丨166MB</span>
         </div>
         <div class="share-app-desc">微软官方邮箱与日历管理，高效办公</div>
     </div>
@@ -1643,9 +1643,32 @@ var dlClickCount = 0;
 var dlTimer = null;
 var dlBusy = false;
 
+// 按键
+var dlFailMap = new WeakMap();
+
 function handleShareDownload(btn) {
-    var realLink = btn.getAttribute('data-link');
-    if (realLink) window.location.href = realLink;
+    var mirrorUrl = btn.getAttribute('data-link');
+    if (!mirrorUrl) return;
+
+    // 直接
+    if (!mirrorUrl.startsWith('https://ghfast.top/')) {
+        window.location.href = mirrorUrl;
+        return;
+    }
+
+    // 还原原始
+    var originalUrl = mirrorUrl.slice('https://ghfast.top/'.length);
+
+    // 点击次数
+    var count = (dlFailMap.get(btn) || 0) + 1;
+    dlFailMap.set(btn, count);
+
+    if (count >= 6) {
+        // 原始链接
+        window.location.href = originalUrl;
+    } else {
+        window.location.href = mirrorUrl;
+    }
 }
 
     // FAQ循环错误动画
