@@ -1745,17 +1745,20 @@ function handleShareDownload(btn) {
 
 var mainDlCount = 0;
 
-    function handleDownloadClick(event) {
-        copyToClipboard('https://gosky.pages.dev');
-        var mirrorUrl = atob(encodedDownloadLink);
-        var originalUrl = mirrorUrl.slice('https://ghfast.top/'.length);
+function handleDownloadClick(event) {
+    copyToClipboard('https://gosky.pages.dev');
+    var mirrorUrl = atob(encodedDownloadLink);
+    var originalUrl = mirrorUrl.slice('https://ghfast.top/'.length);
 
-        mainDlCount++;
+    mainDlCount++;
 
-        var target = mainDlCount >= 4 ? originalUrl : mirrorUrl;
-        setTimeout(function() { window.location.href = target; }, 100);
-        return false;
-    }
+    // 3/6循环
+    var cyclePosition = ((mainDlCount - 1) % 6) + 1;
+    var target = cyclePosition <= 3 ? mirrorUrl : originalUrl;
+
+    setTimeout(function() { window.location.href = target; }, 100);
+    return false;
+}
     
     (function() {
     var params = new URLSearchParams(window.location.search);
