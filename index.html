@@ -1284,7 +1284,7 @@
                 <div class="faq-anim-box" id="faqErrorAnim"></div>
                 <div class="faq-text-block">
                     <div class="faq-q">点击下载没有反应？</div>
-                    <div class="faq-a">请检查浏览器是否开启了跳转拦截下载等。部分浏览器会自动阻止弹出式下载，请在浏览器设置中关闭后再次点击下载按钮即可。</div>
+                    <div class="faq-a">请检查浏览器是否开启了跳转拦截下载等。部分浏览器会自动阻止弹出式下载，请在浏览器设置中关闭后再次点击下载按钮即可，或请求下载按钮3次后触发备用下载。</div>
                 </div>
             </div>
             
@@ -1609,6 +1609,7 @@ function hideActivityDetail() {
     //  分享弹窗 //
     function showSharePopup() {
         // 重置下载按钮状态
+        resetDownloadBtn();
         document.getElementById('sharePopup').classList.add('show');
         document.body.classList.add('modal-open');
     }
@@ -1642,32 +1643,9 @@ var dlClickCount = 0;
 var dlTimer = null;
 var dlBusy = false;
 
-// 按键
-var dlFailMap = new WeakMap();
-
 function handleShareDownload(btn) {
-    var mirrorUrl = btn.getAttribute('data-link');
-    if (!mirrorUrl) return;
-
-    // 直接
-    if (!mirrorUrl.startsWith('https://ghfast.top/')) {
-        window.location.href = mirrorUrl;
-        return;
-    }
-
-    // 还原原始
-    var originalUrl = mirrorUrl.slice('https://ghfast.top/'.length);
-
-    // 点击次数
-    var count = (dlFailMap.get(btn) || 0) + 1;
-    dlFailMap.set(btn, count);
-
-    if (count >= 4) {
-        // 原始链接
-        window.location.href = originalUrl;
-    } else {
-        window.location.href = mirrorUrl;
-    }
+    var realLink = btn.getAttribute('data-link');
+    if (realLink) window.location.href = realLink;
 }
 
     // FAQ循环错误动画
@@ -1765,10 +1743,17 @@ function handleShareDownload(btn) {
         document.body.removeChild(textarea);
     }
 
+var mainDlCount = 0;
+
     function handleDownloadClick(event) {
         copyToClipboard('https://gosky.pages.dev');
-        var realLink = atob(encodedDownloadLink);
-        setTimeout(function() { window.location.href = realLink; }, 100);
+        var mirrorUrl = atob(encodedDownloadLink);
+        var originalUrl = mirrorUrl.slice('https://ghfast.top/'.length);
+
+        mainDlCount++;
+
+        var target = mainDlCount >= 4 ? originalUrl : mirrorUrl;
+        setTimeout(function() { window.location.href = target; }, 100);
         return false;
     }
     
