@@ -667,7 +667,7 @@
         <div class="chat-bubble-btn" onclick="showNotifyPopup()">
             <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 24 24"><path fill="none" stroke="#7ab8f5" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.5 17H4a4 4 0 0 0 2-3v-3a7 7 0 0 1 4-6a2 2 0 1 1 4 0a7 7 0 0 1 4 6m-9 6v1a3 3 0 0 0 5.914.716M19 22v.01M19 19a2.003 2.003 0 0 0 .914-3.782a1.98 1.98 0 0 0-2.414.483"/></svg>
         </div>
-        <div class="chat-bubble-btn" onclick="document.getElementById('sharePopup').classList.add('show');document.body.classList.add('modal-open');" style="z-index:10;">
+        <div class="chat-bubble-btn" onclick="showSharePopup();" style="z-index:10;">
             <svg xmlns="http://www.w3.org/2000/svg" width="21.5" height="21.5" viewBox="0 0 24 24"><path fill="none" stroke="#bfdbfe" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14.5 21a.55.55 0 0 1-1 0L10 14l-7-3.5a.55.55 0 0 1 0-1L21 3l-2.967 8.215M19 22v.01M19 19a2.003 2.003 0 0 0 .914-3.782a1.98 1.98 0 0 0-2.414.483"/></svg>
         </div>
     </div>
@@ -1402,18 +1402,6 @@ function hideActivityDetail() {
     document.body.classList.remove('modal-open');
 }
 
-    //  分享弹窗 //
-    function showSharePopup() {
-        // 重置下载按钮状态
-        resetDownloadBtn();
-        document.getElementById('sharePopup').classList.add('show');
-        document.body.classList.add('modal-open');
-    }
-    function hideSharePopup() {
-        document.getElementById('sharePopup').classList.remove('show');
-        document.body.classList.remove('modal-open');
-    }
-
     //  FAQ弹窗 //
     function showFaqPopup() {
         document.getElementById('faqPopup').classList.add('show');
@@ -1461,7 +1449,6 @@ function hideNotifyPopup() {
 }
 
 function showSharePopup() {
-    resetDownloadBtn();
     document.getElementById('sharePopup').classList.add('show');
     document.body.classList.add('modal-open');
     setPopupUrl('YY');
