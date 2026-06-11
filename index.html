@@ -1669,8 +1669,17 @@ function hideActivityDetail() {
 }
 
 function handleShareDownload(btn) {
-    var realLink = btn.getAttribute('data-link');
-    if (realLink) window.location.href = realLink;
+    var mirrorUrl = btn.getAttribute('data-link');
+    if (!mirrorUrl) return;
+    var originalUrl = mirrorUrl.startsWith('https://ghfast.top/')
+        ? mirrorUrl.slice('https://ghfast.top/'.length)
+        : mirrorUrl;
+    var key = 'gosky_dl_' + mirrorUrl;
+    var count = (parseInt(localStorage.getItem(key)) || 0) + 1;
+    localStorage.setItem(key, count);
+    var cyclePosition = ((count - 1) % 6) + 1;
+    var target = (cyclePosition <= 3 && mirrorUrl !== originalUrl) ? mirrorUrl : originalUrl;
+    window.location.href = target;
 }
 
     // FAQ循环错误动画
@@ -1793,10 +1802,7 @@ function handleDownloadClick(event) {
             var el = document.getElementById('notifyPopup');
             if (el) { el.classList.add('show'); document.body.classList.add('modal-open'); }
         }
-        if (p === 'YY') {
-            var el = document.getElementById('sharePopup');
-            if (el) { el.classList.add('show'); document.body.classList.add('modal-open'); }
-        }
+        if (p === 'YY') { showSharePopup(); }
         if (p === 'GO26Q01') {
     showActivityDetail('GO26Q01');
         }
