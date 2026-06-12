@@ -530,13 +530,14 @@
         }
         .share-download-btn:active { transform: scale(0.9); }
         @keyframes glow-blue {
-            0% { border-color: transparent; box-shadow: none; }
-            40% { border-color: #3b82f6; box-shadow: 0 0 14px rgba(59,130,246,0.5); }
-            100% { border-color: transparent; box-shadow: none; }
+            0% { box-shadow: none; border-color: transparent; }
+            40% { box-shadow: 0 0 0 2.5px #3b82f6; border-color: #3b82f6; }
+            100% { box-shadow: none; border-color: transparent; }
         }
-        .app-highlight {
-            animation: glow-blue 1.4s ease 1;
+        .app-highlight .share-app-icon {
+            animation: glow-blue 1.6s ease 1;
             border: 2px solid transparent;
+            border-radius: 14px;
         }
 
         /* 下载反馈动画覆盖层 */
