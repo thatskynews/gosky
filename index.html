@@ -491,6 +491,9 @@
             background: #e0e0e5;
             box-shadow: 6px 0 8px rgba(0,0,0,0.04);
         }
+        .share-app-icon img {
+            border-radius: 14px;
+        }
         .share-app-info { flex: 1; min-width: 0; }
         .share-app-name {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
@@ -530,13 +533,12 @@
         }
         .share-download-btn:active { transform: scale(0.9); }
         @keyframes glow-blue {
-            0% { box-shadow: none; border-color: transparent; }
-            40% { box-shadow: 0 0 0 2.5px #3b82f6; border-color: #3b82f6; }
-            100% { box-shadow: none; border-color: transparent; }
+            0% { box-shadow: none; border: 2px solid transparent; }
+            40% { box-shadow: 0 0 14px rgba(59,130,246,0.5); border: 2px solid #3b82f6; }
+            100% { box-shadow: none; border: 2px solid transparent; }
         }
         .app-highlight .share-app-icon {
-            animation: glow-blue 1.6s ease 1;
-            border: 2px solid transparent;
+            animation: glow-blue 1.6s ease forwards;
             border-radius: 14px;
         }
 
@@ -835,11 +837,11 @@
 <div class="popup-overlay" id="sharePopup" onclick="hideSharePopup()">
     <div class="popup-content" onclick="event.stopPropagation()">
         <div class="popup-title" style="flex-shrink:0;">推荐应用下载APK</div>
-        <div style="overflow-y:auto; flex:1; min-height:0; scrollbar-width:none; padding-right:4px;">
+        <div style="overflow-y:auto; flex:1; min-height:0; scrollbar-width:none; padding-right:4px; padding-left:3px;">
             
             <!-- 应用1 -->
             <div class="share-app-row" id="app-skytime">
-                <div class="share-app-icon" style="position:relative; overflow:hidden;">
+                <div class="share-app-icon" style="position:relative;">
                     <img src="https://ghfast.top/https://raw.githubusercontent.com/thatskynews/SkyXM/main/1icon.png" alt="GoSky" onerror="this.style.background='linear-gradient(135deg,#3b82f6,#60a5fa)'" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;" onload="var ov=this.parentElement.querySelector('.icon-loading-overlay');if(ov)ov.classList.add('done');">
                     <div class="icon-loading-overlay">
                         <div style="width:28px;height:28px;border:3px solid #d0d0d5;border-top-color:#007AFF;border-radius:50%;animation:spin 1s linear infinite;"></div>
@@ -862,7 +864,7 @@
             
             <!-- 应用2 -->
             <div class="share-app-row" id="app-x">
-                <div class="share-app-icon" style="position:relative; overflow:hidden;">
+                <div class="share-app-icon" style="position:relative;">
                     <img src="https://ghfast.top/https://raw.githubusercontent.com/thatskynews/SkyXM/main/2icon.jpg" alt="GoSky" onerror="this.style.background='linear-gradient(135deg,#3b82f6,#60a5fa)'" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;" onload="var ov=this.parentElement.querySelector('.icon-loading-overlay');if(ov)ov.classList.add('done');">
                     <div class="icon-loading-overlay">
                         <div style="width:28px;height:28px;border:3px solid #d0d0d5;border-top-color:#007AFF;border-radius:50%;animation:spin 1s linear infinite;"></div>
@@ -885,7 +887,7 @@
 
 <!-- 应用3 -->
 <div class="share-app-row" id="app-googleplay">
-    <div class="share-app-icon" style="position:relative; overflow:hidden;">
+    <div class="share-app-icon" style="position:relative;">
         <img src="https://ghfast.top/https://raw.githubusercontent.com/thatskynews/SkyXM/main/GooglePlayStore.jpg" alt="GooglePlayStore" onerror="this.style.background='linear-gradient(135deg,#3b82f6,#60a5fa)'" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;" onload="var ov=this.parentElement.querySelector('.icon-loading-overlay');if(ov)ov.classList.add('done');">
         <div class="icon-loading-overlay">
             <div style="width:28px;height:28px;border:3px solid #d0d0d5;border-top-color:#007AFF;border-radius:50%;animation:spin 1s linear infinite;"></div>
@@ -908,7 +910,7 @@
 
 <!-- 应用4 -->
 <div class="share-app-row" id="app-thor">
-    <div class="share-app-icon" style="position:relative; overflow:hidden;">
+    <div class="share-app-icon" style="position:relative;">
         <img src="https://ghfast.top/https://raw.githubusercontent.com/thatskynews/SkyXM/main/Thor.png" alt="Thor" onerror="this.style.background='linear-gradient(135deg,#1DB954,#1ed760)'" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;" onload="var ov=this.parentElement.querySelector('.icon-loading-overlay');if(ov)ov.classList.add('done');">
         <div class="icon-loading-overlay">
             <div style="width:28px;height:28px;border:3px solid #d0d0d5;border-top-color:#007AFF;border-radius:50%;animation:spin 1s linear infinite;"></div>
@@ -931,7 +933,7 @@
 
 <!-- 应用5 -->
 <div class="share-app-row" id="app-chrome">
-    <div class="share-app-icon" style="position:relative; overflow:hidden;">
+    <div class="share-app-icon" style="position:relative;">
         <img src="https://ghfast.top/https://raw.githubusercontent.com/thatskynews/SkyXM/main/Chrome.jpg" alt="Chrome" onerror="this.style.background='linear-gradient(135deg,#4285F4,#34A853)'" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;" onload="var ov=this.parentElement.querySelector('.icon-loading-overlay');if(ov)ov.classList.add('done');">
         <div class="icon-loading-overlay">
             <div style="width:28px;height:28px;border:3px solid #d0d0d5;border-top-color:#007AFF;border-radius:50%;animation:spin 1s linear infinite;"></div>
@@ -954,7 +956,7 @@
 
 <!-- 应用6 -->
 <div class="share-app-row" id="app-chatgpt">
-    <div class="share-app-icon" style="position:relative; overflow:hidden;">
+    <div class="share-app-icon" style="position:relative;">
         <img src="https://ghfast.top/https://raw.githubusercontent.com/thatskynews/SkyXM/main/ChatGPT.jpg" alt="ChatGPT" onerror="this.style.background='linear-gradient(135deg,#10a37f,#1a7f64)'" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;" onload="var ov=this.parentElement.querySelector('.icon-loading-overlay');if(ov)ov.classList.add('done');">
         <div class="icon-loading-overlay">
             <div style="width:28px;height:28px;border:3px solid #d0d0d5;border-top-color:#007AFF;border-radius:50%;animation:spin 1s linear infinite;"></div>
@@ -977,7 +979,7 @@
 
 <!-- 应用7 -->
 <div class="share-app-row" id="app-gemini">
-    <div class="share-app-icon" style="position:relative; overflow:hidden;">
+    <div class="share-app-icon" style="position:relative;">
         <img src="https://ghfast.top/https://raw.githubusercontent.com/thatskynews/SkyXM/main/Gemini.jpg" alt="Gemini" onerror="this.style.background='linear-gradient(135deg,#4285F4,#EA4335)'" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;" onload="var ov=this.parentElement.querySelector('.icon-loading-overlay');if(ov)ov.classList.add('done');">
         <div class="icon-loading-overlay">
             <div style="width:28px;height:28px;border:3px solid #d0d0d5;border-top-color:#007AFF;border-radius:50%;animation:spin 1s linear infinite;"></div>
@@ -1000,7 +1002,7 @@
 
 <!-- 应用8 -->
 <div class="share-app-row" id="app-claude">
-    <div class="share-app-icon" style="position:relative; overflow:hidden;">
+    <div class="share-app-icon" style="position:relative;">
         <img src="https://ghfast.top/https://raw.githubusercontent.com/thatskynews/SkyXM/main/Claude.jpg" alt="Claude" onerror="this.style.background='linear-gradient(135deg,#7B2CBF,#9D4EDD)'" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;" onload="var ov=this.parentElement.querySelector('.icon-loading-overlay');if(ov)ov.classList.add('done');">
         <div class="icon-loading-overlay">
             <div style="width:28px;height:28px;border:3px solid #d0d0d5;border-top-color:#007AFF;border-radius:50%;animation:spin 1s linear infinite;"></div>
@@ -1023,7 +1025,7 @@
 
 <!-- 应用9 -->
 <div class="share-app-row" id="app-instagram">
-    <div class="share-app-icon" style="position:relative; overflow:hidden;">
+    <div class="share-app-icon" style="position:relative;">
         <img src="https://ghfast.top/https://raw.githubusercontent.com/thatskynews/SkyXM/main/Instagram.jpg" alt="Instagram" onerror="this.style.background='linear-gradient(135deg,#E4405F,#F56040)'" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;" onload="var ov=this.parentElement.querySelector('.icon-loading-overlay');if(ov)ov.classList.add('done');">
         <div class="icon-loading-overlay">
             <div style="width:28px;height:28px;border:3px solid #d0d0d5;border-top-color:#007AFF;border-radius:50%;animation:spin 1s linear infinite;"></div>
@@ -1046,7 +1048,7 @@
 
 <!-- 应用10 -->
 <div class="share-app-row" id="app-netflix">
-    <div class="share-app-icon" style="position:relative; overflow:hidden;">
+    <div class="share-app-icon" style="position:relative;">
         <img src="https://ghfast.top/https://raw.githubusercontent.com/thatskynews/SkyXM/main/Netflix.jpg" alt="Netflix" onerror="this.style.background='linear-gradient(135deg,#E50914,#B81D24)'" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;" onload="var ov=this.parentElement.querySelector('.icon-loading-overlay');if(ov)ov.classList.add('done');">
         <div class="icon-loading-overlay">
             <div style="width:28px;height:28px;border:3px solid #d0d0d5;border-top-color:#007AFF;border-radius:50%;animation:spin 1s linear infinite;"></div>
@@ -1069,7 +1071,7 @@
 
 <!-- 应用11 -->
 <div class="share-app-row" id="app-threads">
-    <div class="share-app-icon" style="position:relative; overflow:hidden;">
+    <div class="share-app-icon" style="position:relative;">
         <img src="https://ghfast.top/https://raw.githubusercontent.com/thatskynews/SkyXM/main/Threads.jpg" alt="Threads" onerror="this.style.background='linear-gradient(135deg,#000000,#333333)'" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;" onload="var ov=this.parentElement.querySelector('.icon-loading-overlay');if(ov)ov.classList.add('done');">
         <div class="icon-loading-overlay">
             <div style="width:28px;height:28px;border:3px solid #d0d0d5;border-top-color:#007AFF;border-radius:50%;animation:spin 1s linear infinite;"></div>
@@ -1092,7 +1094,7 @@
 
 <!-- 应用12 -->
 <div class="share-app-row" id="app-weverse">
-    <div class="share-app-icon" style="position:relative; overflow:hidden;">
+    <div class="share-app-icon" style="position:relative;">
         <img src="https://ghfast.top/https://raw.githubusercontent.com/thatskynews/SkyXM/main/Weverse.jpg" alt="Weverse" onerror="this.style.background='linear-gradient(135deg,#00C3A5,#00E5C7)'" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;" onload="var ov=this.parentElement.querySelector('.icon-loading-overlay');if(ov)ov.classList.add('done');">
         <div class="icon-loading-overlay">
             <div style="width:28px;height:28px;border:3px solid #d0d0d5;border-top-color:#007AFF;border-radius:50%;animation:spin 1s linear infinite;"></div>
@@ -1115,7 +1117,7 @@
 
 <!-- 应用13 -->
 <div class="share-app-row" id="app-youtube">
-    <div class="share-app-icon" style="position:relative; overflow:hidden;">
+    <div class="share-app-icon" style="position:relative;">
         <img src="https://ghfast.top/https://raw.githubusercontent.com/thatskynews/SkyXM/main/YouTube.jpg" alt="YouTube" onerror="this.style.background='linear-gradient(135deg,#FF0000,#CC0000)'" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;" onload="var ov=this.parentElement.querySelector('.icon-loading-overlay');if(ov)ov.classList.add('done');">
         <div class="icon-loading-overlay">
             <div style="width:28px;height:28px;border:3px solid #d0d0d5;border-top-color:#007AFF;border-radius:50%;animation:spin 1s linear infinite;"></div>
@@ -1138,7 +1140,7 @@
 
 <!-- 应用14 -->
 <div class="share-app-row" id="app-grok">
-    <div class="share-app-icon" style="position:relative; overflow:hidden;">
+    <div class="share-app-icon" style="position:relative;">
         <img src="https://ghfast.top/https://raw.githubusercontent.com/thatskynews/SkyXM/main/Grok.jpg" alt="Grok" onerror="this.style.background='linear-gradient(135deg,#000000,#333333)'" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;" onload="var ov=this.parentElement.querySelector('.icon-loading-overlay');if(ov)ov.classList.add('done');">
         <div class="icon-loading-overlay">
             <div style="width:28px;height:28px;border:3px solid #d0d0d5;border-top-color:#007AFF;border-radius:50%;animation:spin 1s linear infinite;"></div>
@@ -1161,7 +1163,7 @@
 
 <!-- 应用15 -->
 <div class="share-app-row" id="app-gmail">
-    <div class="share-app-icon" style="position:relative; overflow:hidden;">
+    <div class="share-app-icon" style="position:relative;">
         <img src="https://ghfast.top/https://raw.githubusercontent.com/thatskynews/SkyXM/main/Gmail.jpg" alt="Gmail" onerror="this.style.background='linear-gradient(135deg,#EA4335,#FBBC05)'" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;" onload="var ov=this.parentElement.querySelector('.icon-loading-overlay');if(ov)ov.classList.add('done');">
         <div class="icon-loading-overlay">
             <div style="width:28px;height:28px;border:3px solid #d0d0d5;border-top-color:#007AFF;border-radius:50%;animation:spin 1s linear infinite;"></div>
@@ -1184,7 +1186,7 @@
 
 <!-- 应用16 -->
 <div class="share-app-row" id="app-facebook">
-    <div class="share-app-icon" style="position:relative; overflow:hidden;">
+    <div class="share-app-icon" style="position:relative;">
         <img src="https://ghfast.top/https://raw.githubusercontent.com/thatskynews/SkyXM/main/Facebook.jpg" alt="Facebook" onerror="this.style.background='linear-gradient(135deg,#1877F2,#0A5ED4)'" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;" onload="var ov=this.parentElement.querySelector('.icon-loading-overlay');if(ov)ov.classList.add('done');">
         <div class="icon-loading-overlay">
             <div style="width:28px;height:28px;border:3px solid #d0d0d5;border-top-color:#007AFF;border-radius:50%;animation:spin 1s linear infinite;"></div>
@@ -1207,7 +1209,7 @@
 
 <!-- 应用17 -->
 <div class="share-app-row" id="app-spotify">
-    <div class="share-app-icon" style="position:relative; overflow:hidden;">
+    <div class="share-app-icon" style="position:relative;">
         <img src="https://ghfast.top/https://raw.githubusercontent.com/thatskynews/SkyXM/main/Spotify.jpg" alt="Spotify" onerror="this.style.background='linear-gradient(135deg,#1877F2,#0A5ED4)'" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;" onload="var ov=this.parentElement.querySelector('.icon-loading-overlay');if(ov)ov.classList.add('done');">
         <div class="icon-loading-overlay">
             <div style="width:28px;height:28px;border:3px solid #d0d0d5;border-top-color:#007AFF;border-radius:50%;animation:spin 1s linear infinite;"></div>
@@ -1230,7 +1232,7 @@
 
 <!-- 应用18 -->
 <div class="share-app-row" id="app-alightmotion">
-    <div class="share-app-icon" style="position:relative; overflow:hidden;">
+    <div class="share-app-icon" style="position:relative;">
         <img src="https://ghfast.top/https://raw.githubusercontent.com/thatskynews/SkyXM/main/AlightMotion.png" alt="Alight Motion" onerror="this.style.background='linear-gradient(135deg,#9C27B0,#E040FB)'" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;" onload="var ov=this.parentElement.querySelector('.icon-loading-overlay');if(ov)ov.classList.add('done');">
         <div class="icon-loading-overlay">
             <div style="width:28px;height:28px;border:3px solid #d0d0d5;border-top-color:#007AFF;border-radius:50%;animation:spin 1s linear infinite;"></div>
@@ -1253,7 +1255,7 @@
 
 <!-- 应用19 -->
 <div class="share-app-row" id="app-outlook">
-    <div class="share-app-icon" style="position:relative; overflow:hidden;">
+    <div class="share-app-icon" style="position:relative;">
         <img src="https://ghfast.top/https://raw.githubusercontent.com/thatskynews/SkyXM/main/Outlook.png" alt="Outlook" onerror="this.style.background='linear-gradient(135deg,#0078D4,#00A3F9)'" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;" onload="var ov=this.parentElement.querySelector('.icon-loading-overlay');if(ov)ov.classList.add('done');">
         <div class="icon-loading-overlay">
             <div style="width:28px;height:28px;border:3px solid #d0d0d5;border-top-color:#007AFF;border-radius:50%;animation:spin 1s linear infinite;"></div>
@@ -1276,7 +1278,7 @@
 
 <!-- 应用20 -->
 <div class="share-app-row" id="app-arcore">
-    <div class="share-app-icon" style="position:relative; overflow:hidden;">
+    <div class="share-app-icon" style="position:relative;">
         <img src="https://ghfast.top/https://raw.githubusercontent.com/thatskynews/SkyXM/main/GooglePlayServicesforAR.png" alt="GooglePlayServicesforAR" onerror="this.style.background='linear-gradient(135deg,#0078D4,#00A3F9)'" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;" onload="var ov=this.parentElement.querySelector('.icon-loading-overlay');if(ov)ov.classList.add('done');">
         <div class="icon-loading-overlay">
             <div style="width:28px;height:28px;border:3px solid #d0d0d5;border-top-color:#007AFF;border-radius:50%;animation:spin 1s linear infinite;"></div>
@@ -1843,6 +1845,9 @@ function handleDownloadClick(event) {
                 setTimeout(function() {
                     appEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
                     appEl.classList.add('app-highlight');
+                    appEl.addEventListener('animationend', function() {
+                        appEl.classList.remove('app-highlight');
+                    }, { once: true });
                 }, 350);
             }
         }
