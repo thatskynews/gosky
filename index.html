@@ -1525,7 +1525,7 @@ function showActivityDetail(type) {
             
             const langData = {
                 zh: {
-                    statusText: '进行中',
+                    statusText: '已关闭',
                     welcome: 'Hey，亲爱的GoSky用户们！GO26Q01 活动现已开启！参与本活动获取丰厚的GoSky卡密通行码，在参与本次活动时请您仔细阅读并了解以下活动内容。',
                     prizeTitle: '活动奖品',
                     ruleTitle: '活动规则',
@@ -1615,8 +1615,8 @@ function showActivityDetail(type) {
                         </div>
                         <div>
                             <span id="activityStatusDot" style="display: inline-flex; align-items: center; gap: 6px; margin-right: 8px;">
-                                <span class="pinned-indicator"></span>
-                                <span id="activityStatusText" style="color: #3b82f6; font-size: 13px; font-weight: 500;">${data.statusText}</span>
+                                <span style="display:inline-block;width:8px;height:8px;background:#ff3b30;border-radius:50%;box-shadow:0 0 8px rgba(255,59,48,0.6);"></span>
+                                <span id="activityStatusText" style="color: #ff3b30; font-size: 13px; font-weight: 500;">${data.statusText}</span>
                             </span>
                             ${data.welcome}
                         </div>
