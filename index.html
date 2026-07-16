@@ -727,7 +727,7 @@
         <div style="margin-bottom: 6px;">
             <a href="https://skytime.pages.dev" style="color: #000000; text-decoration: underline; text-decoration-color: #888888; font-size: 12px; font-weight: 500;">Skytime</a>
         </div>
-        &copy; 2023 - 2026 GoSky. All rights reserved.
+        &copy; 2023 - <span id="year"></span> GoSky. All rights reserved.
     </div>
 </div>
 
@@ -1878,6 +1878,7 @@ function handleDownloadClick(event) {
         }
     }, 500);
 })();
+document.getElementById('year').textContent = new Date().getFullYear();
 </script>
 </body>
 </html>
